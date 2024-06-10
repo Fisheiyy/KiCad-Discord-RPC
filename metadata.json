@@ -1,0 +1,36 @@
+{
+    "$schema": "https://go.kicad.org/pcm/schemas/v1",
+    "name": "Discord RPC for KiCad",
+    "description": "Discord Rich Presence for KiCad.",
+    "description_full": "Discord Rich Presence for KiCad. Shows what you're working on in KiCad on Discord.",
+    "identifier": "com.github.fisheiyy.KiCad-Discord-RPC",
+    "type": "plugin",
+    "author": {
+        "name": "fisheiyy",
+        "contact": {
+            "github": "https://github.com/fisheiyy"
+        }
+    },
+    "maintainer": {
+        "name": "fisheiyy",
+        "contact": {
+            "github": "https://github.com/fisheiyy"
+        }
+    },
+    "license": "CC-BY-NC-SA-4.0",
+    "resources": {
+        "homepage": "https://github.com/fisheiyy"
+    },
+    "tags": [
+        "discord",
+        "rpc",
+        "kicad"
+    ],
+    "versions": [
+        {
+            "version": "1.0.0",
+            "status": "testing",
+            "kicad_version": "8.00"
+        }
+    ]
+}
