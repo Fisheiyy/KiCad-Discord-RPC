@@ -65,17 +65,20 @@ class RPC():
 
     def start_presence(self):
         if not self.running:
-            while pcbnew.GetBoard() is None:
+            if pcbnew.GetBoard() is not None:
                 try:
                     self.running = True
                     self.stop_event.clear()
                     self.thread = Thread(target=self.update_presence)
                     self.thread.start()
-                    #wx.MessageBox("Discord Rich Presence is now running in the background", "Discord Rich Presence", wx.OK | wx.ICON_INFORMATION)
+                    wx.MessageBox("Discord Rich Presence is now running in the background", "Discord Rich Presence", wx.OK | wx.ICON_INFORMATION)
                 except Exception as e:
                     import logging
                     logger = logging.getLogger()
                     logger.debug(repr(e))
+            else:
+                wx.MessageBox("No pcbnew board is currently loaded", "Discord Rich Presence", wx.OK | wx.ICON_ERROR)
+                
             
     def stop_presence(self):
         if self.running:
@@ -83,7 +86,7 @@ class RPC():
             self.stop_event.set()
             self.thread.join()
             rpc.clear()
-            #wx.MessageBox("Discord Rich Presence has been stopped", "Discord Rich Presence", wx.OK | wx.ICON_INFORMATION)
+            wx.MessageBox("Discord Rich Presence has been stopped", "Discord Rich Presence", wx.OK | wx.ICON_INFORMATION)
     
     def toggle_presence(self):
         if self.running:
